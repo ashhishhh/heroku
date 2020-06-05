@@ -756,12 +756,22 @@ $settings['entity_update_backup'] = TRUE;
 #   include $app_root . '/' . $site_path . '/settings.local.php';
 # }
 $settings['config_sync_directory'] = '../config/sync';
-$databases['default']['default'] = array (
+/*$databases['default']['default'] = array (
   'database' => 'd7nuismsugveqr',
   'username' => 'xilarockkzppzj',
   'password' => '34ba382e697812a6c3ef734a052623eee796ae4be983646581d88c33a8cf4c87',
   'prefix' => '',
   'host' => 'ec2-52-70-15-120.compute-1.amazonaws.com',
+  'port' => '',
+  'namespace' => 'Drupal\\Core\\Database\\Driver\\pgsql',
+  'driver' => 'pgsql',
+);*/
+$databases['default']['default'] = array (
+  'database' => getenv('MY_DATABASE'),
+  'username' => getenv('MY_USERNAME'),
+  'password' => getenv('MY_PASSWORD'),
+  'prefix' => '',
+  'host' => getenv('MY_DB_HOST'),
   'port' => '',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\pgsql',
   'driver' => 'pgsql',
