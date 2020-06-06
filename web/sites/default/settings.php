@@ -784,6 +784,13 @@ $settings['cache']['default'] = 'cache.backend.redis';
 $settings['redis.connection']['base'] = 8;
 */
 
+// Include the Redis services.yml file. Adjust the path if you installed to a contrib or other subdirectory.
+$settings['container_yamls'][] = 'modules/redis/example.services.yml';
+//phpredis is built into the Pantheon application container.
+$settings['redis.connection']['interface'] = 'PhpRedis';
+// These are dynamic variables handled by Pantheon.
+
 $settings['redis.connection']['interface'] = 'PhpRedis'; // Can be "Predis".
-$settings['redis.connection']['host']      = 'redis-13812.c74.us-east-1-4.ec2.cloud.redislabs.com:13812';  // Your Redis instance hostname.
+$settings['redis.connection']['host']      = 'redis-13812.c74.us-east-1-4.ec2.cloud.redislabs.com';  // Your Redis instance hostname.
+$settings['redis.connection']['port']      =  13812;
 $settings['cache']['default'] = 'cache.backend.redis';
