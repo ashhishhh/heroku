@@ -793,4 +793,4 @@ $settings['redis.connection']['interface'] = 'PhpRedis';
 $settings['redis.connection']['interface'] = 'PhpRedis'; // Can be "Predis".
 $settings['redis.connection']['host']      = 'redis-13812.c74.us-east-1-4.ec2.cloud.redislabs.com';  // Your Redis instance hostname.
 $settings['redis.connection']['port']      =  13812;
-$settings['cache']['default'] = 'cache.backend.redis';
+//$settings['cache']['default'] = 'cache.backend.redis';
