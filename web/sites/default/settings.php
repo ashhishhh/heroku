@@ -794,4 +794,4 @@ $settings['redis.connection']['interface'] = 'Predis'; // Can be "Predis".
 $settings['redis.connection']['host']      = parse_url($_ENV['REDISCLOUD_URL'], PHP_URL_HOST);
 $settings['redis.connection']['port']      = parse_url($_ENV['REDISCLOUD_URL'], PHP_URL_PORT);
 $settings['redis.connection']['password']  = parse_url($_ENV['REDISCLOUD_URL'], PHP_URL_PASS);
-//$settings['cache']['default'] = 'cache.backend.redis';
+$settings['cache']['default'] = 'cache.backend.redis';
