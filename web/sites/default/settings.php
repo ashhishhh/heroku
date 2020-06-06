@@ -791,6 +791,7 @@ $settings['container_yamls'][] = 'modules/redis/example.services.yml';
 // These are dynamic variables handled by Pantheon.
 
 $settings['redis.connection']['interface'] = 'Predis'; // Can be "Predis".
-$settings['redis.connection']['host']      = 'redis-13812.c74.us-east-1-4.ec2.cloud.redislabs.com';  // Your Redis instance hostname.
-$settings['redis.connection']['port']      =  13812;
+$settings['redis.connection']['host']      = parse_url($_ENV['REDISCLOUD_URL'], PHP_URL_HOST);
+$settings['redis.connection']['port']      = parse_url($_ENV['REDISCLOUD_URL'], PHP_URL_PORT);
+$settings['redis.connection']['password']  = parse_url($_ENV['REDISCLOUD_URL'], PHP_URL_PASS);
 $settings['cache']['default'] = 'cache.backend.redis';
