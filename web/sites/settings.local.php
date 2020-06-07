@@ -47,7 +47,7 @@ $settings['container_yamls'][] = DRUPAL_ROOT . '/sites/development.services.yml'
  * example the database connection failed, we rely only on this value.
  */
 ini_set('display_errors',1);
-$config['system.logging']['error_level'] = 'verbose'
+$config['system.logging']['error_level'] = 'verbose';
 
 /**
  * Disable CSS and JS aggregation.
