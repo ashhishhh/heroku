@@ -756,41 +756,22 @@ $settings['entity_update_backup'] = TRUE;
    include $app_root . '/' . $site_path . '/settings.local.php';
  }
 $settings['config_sync_directory'] = '../config/sync';
-/*$databases['default']['default'] = array (
-  'database' => 'd7nuismsugveqr',
-  'username' => 'xilarockkzppzj',
-  'password' => '34ba382e697812a6c3ef734a052623eee796ae4be983646581d88c33a8cf4c87',
-  'prefix' => '',
-  'host' => 'ec2-52-70-15-120.compute-1.amazonaws.com',
-  'port' => '',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\pgsql',
-  'driver' => 'pgsql',
-);*/
+
+$db = parse_url(getenv("DATABASE_URL"));
 $databases['default']['default'] = array (
-  'database' => getenv('MY_DATABASE'),
-  'username' => getenv('MY_USERNAME'),
-  'password' => getenv('MY_PASSWORD'),
+  'database' => ltrim($db["path"], "/"),
+  'username' => $db["user"],
+  'password' => $db["pass"],
   'prefix' => '',
-  'host' => getenv('MY_DB_HOST'),
+  'host' => $db["host"],
   'port' => '',
   'namespace' => 'Drupal\\Core\\Database\\Driver\\pgsql',
   'driver' => 'pgsql',
 );
 
-
-/*$settings['redis.connection']['host'] = 'redis-13812.c74.us-east-1-4.ec2.cloud.redislabs.com';
-$settings['redis.connection']['port'] = 13812;
-$settings['cache']['default'] = 'cache.backend.redis';
-$settings['redis.connection']['base'] = 8;
-*/
-
 // Include the Redis services.yml file. Adjust the path if you installed to a contrib or other subdirectory.
 $settings['container_yamls'][] = 'modules/redis/example.services.yml';
-//phpredis is built into the Pantheon application container.
-//$settings['redis.connection']['interface'] = 'PhpRedis';
-// These are dynamic variables handled by Pantheon.
-
-$settings['redis.connection']['interface'] = 'Predis'; // Can be "Predis".
+$settings['redis.connection']['interface'] = 'Predis';
 $settings['redis.connection']['host']      = parse_url($_ENV['REDISCLOUD_URL'], PHP_URL_HOST);
 $settings['redis.connection']['port']      = parse_url($_ENV['REDISCLOUD_URL'], PHP_URL_PORT);
 $settings['redis.connection']['password']  = parse_url($_ENV['REDISCLOUD_URL'], PHP_URL_PASS);
