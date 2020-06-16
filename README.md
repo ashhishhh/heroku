@@ -7,7 +7,7 @@ System Requirement:
 
 Installation
 
-1. composer create-project --no-install drupal/recommended-project <FolderName>
+1. ```composer create-project --no-install drupal/recommended-project [FolderName]```
 
 //Todo
 2. Procfile 
